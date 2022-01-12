@@ -16,8 +16,8 @@
 # source controlled in git.
 # ------------------------------------------------------------------------
 name: WordPress Template with Comments
-formatVersion: 1
 version: 1
+formatVersion: 1
 #
 # ------------------------------------------------------------------------
 # Inputs create user selections that appear at deployment time. Inputs 
