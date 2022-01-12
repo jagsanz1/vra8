@@ -78,3 +78,42 @@ data "vra_project" "this" {
   name = vra_project.this.name
   depends_on = [vra_project.this]
 }
+
+# Create an flavor profile
+resource "vra_flavor_profile" "this" {
+  name        = "terraform-flavour-profile"
+  description = "Flavour profile created by Terraform"
+  region_id   = data.vra_region.region_east_1.id
+
+  flavor_mapping {
+    name          = "x-small"
+    instance_type = "t2.micro"
+  }
+
+  flavor_mapping {
+    name          = "small"
+    instance_type = "t2.small"
+  }
+
+  flavor_mapping {
+    name          = "medium"
+    instance_type = "t2.medium"
+  }
+  
+  flavor_mapping {
+    name          = "large"
+    instance_type = "t2.large"
+  }
+}
+
+# Create a new image profile
+resource "vra_image_profile" "this" {
+  name        = "terraform-aws-image-profile"
+  description = "AWS image profile created by Terraform"
+  region_id   = data.vra_region.region_east_1.id
+
+  image_mapping {
+    name       = "ubuntu-bionic"
+    image_name = "ami-0dd655843c87b6930"
+  }
+}
