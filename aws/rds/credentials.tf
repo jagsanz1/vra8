@@ -1,9 +1,9 @@
 variable "username" {
-	default = "admin"
+	type = string
 }
 
 variable "password" {
-	default = "test123#"
+	type = string
 }
 variable "access_key" {
 	type = string
